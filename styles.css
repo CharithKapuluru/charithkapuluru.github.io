@@ -1,4 +1,11 @@
-/* Updated logo styles */
+/* Base styles */
+:root {
+    --primary: #4A90E2;
+    --background: #0F172A;
+    --text: #F8FAFC;
+}
+
+/* Logo styles */
 .logo {
     display: flex;
     align-items: center;
@@ -15,5 +22,4 @@
     transform: scale(1.1);
 }
 
-/* Rest of your existing CSS styles */
-/* ... */
+/* Your existing styles continue here */
