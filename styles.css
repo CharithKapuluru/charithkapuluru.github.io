@@ -27,27 +27,6 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Typography */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-/* Header & Navigation */
 header {
     background: var(--background);
     border-bottom: 1px solid var(--border);
@@ -86,7 +65,6 @@ nav {
     color: var(--primary);
 }
 
-/* Hero Section */
 .hero {
     padding: 8rem 0 4rem;
     text-align: center;
@@ -97,13 +75,31 @@ nav {
     margin: 0 auto;
 }
 
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
 .hero p {
     font-size: 1.25rem;
     color: var(--text-light);
     margin-bottom: 2rem;
 }
 
-/* Buttons */
 .button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -115,10 +111,9 @@ nav {
 }
 
 .button:hover {
-    background: color-mix(in srgb, var(--primary) 90%, black);
+    background: #1b48e4;
 }
 
-/* Sections */
 .section {
     padding: 5rem 0;
 }
@@ -127,7 +122,6 @@ nav {
     background: var(--background-light);
 }
 
-/* Project Grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -152,7 +146,6 @@ nav {
     font-size: 0.875rem;
 }
 
-/* About Section */
 .about-content {
     max-width: 800px;
 }
@@ -171,13 +164,11 @@ nav {
     color: var(--text-light);
 }
 
-/* Contact Section */
 .contact-text {
     margin-bottom: 2rem;
     font-size: 1.125rem;
 }
 
-/* Footer */
 footer {
     padding: 2rem 0;
     background: var(--background-light);
@@ -185,7 +176,6 @@ footer {
     color: var(--text-light);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
