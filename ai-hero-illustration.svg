@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0F172A" />
+  
+  <!-- Neural Network -->
+  <g transform="translate(100, 50)">
+    <!-- Connection Lines -->
+    <path d="M200 100 L400 50 M200 100 L400 150 M200 100 L400 250
+             M200 200 L400 50 M200 200 L400 150 M200 200 L400 250
+             M200 300 L400 50 M200 300 L400 150 M200 300 L400 250" 
+          stroke="#4A90E2" stroke-width="2" opacity="0.3">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Input Layer Nodes -->
+    <g fill="#4A90E2">
+      <circle cx="200" cy="100" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="200" cy="200" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="0.5s" />
+      </circle>
+      <circle cx="200" cy="300" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="1s" />
+      </circle>
+    </g>
+    
+    <!-- Hidden Layer Nodes -->
+    <g fill="#E74C3C">
+      <circle cx="400" cy="50" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="0.3s" />
+      </circle>
+      <circle cx="400" cy="150" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="0.8s" />
+      </circle>
+      <circle cx="400" cy="250" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="1.3s" />
+      </circle>
+    </g>
+    
+    <!-- Output Layer Nodes -->
+    <g fill="#2ECC71">
+      <circle cx="600" cy="150" r="15">
+        <animate attributeName="r" values="15;17;15" dur="2s" repeatCount="indefinite" begin="1.5s" />
+      </circle>
+    </g>
+    
+    <!-- Additional Decorative Elements -->
+    <g fill="none" stroke="#4A90E2" stroke-width="1">
+      <circle cx="300" cy="400" r="30" opacity="0.2" />
+      <circle cx="500" cy="350" r="40" opacity="0.2" />
+      <circle cx="150" cy="50" r="25" opacity="0.2" />
+    </g>
+  </g>
+</svg>
