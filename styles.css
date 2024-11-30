@@ -92,6 +92,7 @@ h3 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--primary);
 }
 
 .hero p {
@@ -122,6 +123,65 @@ h3 {
     background: var(--background-light);
 }
 
+/* Enhanced About Section Styles */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content .intro {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.about-content .mission,
+.about-content .vision {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.expertise {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.education {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.expertise ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.expertise li {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.expertise li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.education p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Project Section Styles */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -144,24 +204,6 @@ h3 {
     margin-top: 1rem;
     color: var(--text-light);
     font-size: 0.875rem;
-}
-
-.about-content {
-    max-width: 800px;
-}
-
-.expertise {
-    margin-top: 2rem;
-}
-
-.expertise ul {
-    list-style: none;
-    margin-top: 1rem;
-}
-
-.expertise li {
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
 }
 
 .contact-text {
@@ -191,5 +233,10 @@ footer {
 
     .hero p {
         font-size: 1.125rem;
+    }
+
+    .expertise,
+    .education {
+        padding: 1.5rem;
     }
 }
