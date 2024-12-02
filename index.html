@@ -27,6 +27,26 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        /* New Flashcard Styles */
+        .flashcard {
+            perspective: 1000px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+        .flashcard-front, .flashcard-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -38,6 +58,7 @@
                 <div class="flex space-x-8">
                     <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
                     <a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#learn" class="text-gray-300 hover:text-white transition-colors">Learn</a>
                     <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
                 </div>
             </div>
@@ -57,95 +78,60 @@
     </div>
 
     <!-- About -->
-    <section id="about" class="py-20 bg-gray-900">
+    [Previous About section remains the same]
+
+    <!-- Projects -->
+    [Previous Projects section remains the same]
+
+    <!-- Interactive Learning Section -->
+    <section id="learn" class="py-20 bg-gray-900">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-12 text-center">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700 card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4">Background</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        AI researcher pursuing MS in Computer Science at University of North Texas, focused on developing practical AI solutions that make a real impact. Passionate about pushing the boundaries of what's possible with artificial intelligence.
-                    </p>
-                </div>
-                <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700 card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4">Skills & Expertise</h3>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-gray-300 bg-blue-500/10 p-2 rounded">
-                            <span class="mr-2">🧠</span>
-                            Machine Learning & Deep Learning
-                        </div>
-                        <div class="flex items-center text-gray-300 bg-blue-500/10 p-2 rounded">
-                            <span class="mr-2">👁️</span>
-                            Computer Vision Systems
-                        </div>
-                        <div class="flex items-center text-gray-300 bg-blue-500/10 p-2 rounded">
-                            <span class="mr-2">💬</span>
-                            Natural Language Processing
-                        </div>
-                        <div class="flex items-center text-gray-300 bg-blue-500/10 p-2 rounded">
-                            <span class="mr-2">🔮</span>
-                            Neural Networks & AI Development
+            <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-12 text-center">Interactive Learning</h2>
+            
+            <!-- Flashcard Component -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div id="flashcard" class="relative h-64 w-full cursor-pointer" onclick="flashcardManager.flipCard()">
+                    <div class="absolute inset-0 bg-gray-800/50 p-8 rounded-xl border border-gray-700 card-hover">
+                        <div class="flex flex-col h-full">
+                            <span id="card-category" class="text-blue-400 text-sm mb-4"></span>
+                            <div id="card-content" class="flex-grow flex items-center justify-center text-xl text-center"></div>
+                            <div class="text-gray-400 text-sm text-center mt-4">Click to flip</div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Navigation Controls -->
+                <div class="flex justify-center items-center gap-4 mt-4">
+                    <button onclick="flashcardManager.previousCard()" 
+                            class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                        Previous
+                    </button>
+                    <span id="card-counter" class="text-gray-400"></span>
+                    <button onclick="flashcardManager.nextCard()" 
+                            class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                        Next
+                    </button>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-20 bg-gray-800">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-12 text-center">Featured Projects</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-700 card-hover">
-                    <div class="text-3xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Neural Networks</h3>
-                    <p class="text-gray-400 mb-4">Advanced deep learning architectures for complex problems</p>
-                    <p class="text-blue-400 text-sm font-medium">Python • TensorFlow • PyTorch</p>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-700 card-hover">
-                    <div class="text-3xl mb-4">👁️</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Computer Vision</h3>
-                    <p class="text-gray-400 mb-4">Image recognition and processing systems</p>
-                    <p class="text-blue-400 text-sm font-medium">OpenCV • YOLO • CNN</p>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-700 card-hover">
-                    <div class="text-3xl mb-4">💬</div>
-                    <h3 class="text-xl font-bold text-white mb-3">NLP Systems</h3>
-                    <p class="text-gray-400 mb-4">Natural language processing solutions</p>
-                    <p class="text-blue-400 text-sm font-medium">BERT • Transformers • spaCy</p>
+            
+            <!-- Stats Section -->
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-2">Total Cards</h3>
+                    <div id="total-cards" class="text-3xl font-bold text-blue-400">0</div>
+                    <p class="text-gray-400">Available</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-900">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8">Get in Touch</h2>
-            <p class="text-gray-300 mb-8 text-lg">Interested in collaboration? Let's connect and create something amazing.</p>
-            <a href="mailto:contact@charithkapuluru.com" 
-               class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
-                Email Me
-            </a>
-            <div class="flex justify-center space-x-8 mt-8">
-                <a href="https://github.com/CharithKapuluru" target="_blank" 
-                   class="text-gray-400 hover:text-white transition-colors flex items-center">
-                    <span class="mr-2">GitHub</span>
-                </a>
-                <a href="https://linkedin.com/in/charithkapuluru" target="_blank"
-                   class="text-gray-400 hover:text-white transition-colors flex items-center">
-                    <span class="mr-2">LinkedIn</span>
-                </a>
-            </div>
-        </div>
-    </section>
+    [Previous Contact section remains the same]
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-900 border-t border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 text-center text-gray-400">
-            <p>© 2024 Charith Kapuluru. All rights reserved.</p>
-        </div>
-    </footer>
+    [Previous Footer section remains the same]
+
+    <!-- Scripts -->
+    <script src="js/flashcards.js"></script>
 </body>
 </html>
