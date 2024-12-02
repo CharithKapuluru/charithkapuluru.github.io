@@ -61,53 +61,88 @@ class FlashcardManager {
                 category: "Basic AI Concepts",
                 difficulty: "Beginner"
             },
-            // Intermediate Level Cards
             {
                 id: 9,
+                front: "What is Reinforcement Learning?",
+                back: "A type of machine learning where an agent learns to make decisions by performing actions in an environment to maximize a reward.",
+                category: "Basic AI Concepts",
+                difficulty: "Beginner"
+            },
+            {
+                id: 10,
+                front: "What is Data Preprocessing?",
+                back: "The process of cleaning and transforming raw data into a format that's suitable for machine learning models.",
+                category: "Basic AI Concepts",
+                difficulty: "Beginner"
+            },
+            // Intermediate Level Cards
+            {
+                id: 11,
                 front: "What is Backpropagation?",
                 back: "An algorithm for training neural networks that calculates gradients by working backwards from the output layer to adjust weights and minimize error.",
                 category: "Neural Networks",
                 difficulty: "Intermediate"
             },
             {
-                id: 10,
+                id: 12,
                 front: "What is a Convolutional Neural Network (CNN)?",
                 back: "A deep learning architecture particularly effective for image processing, using convolutional layers to detect features and patterns.",
                 category: "Neural Networks",
                 difficulty: "Intermediate"
             },
             {
-                id: 11,
+                id: 13,
                 front: "What is Transfer Learning?",
                 back: "A machine learning technique where a pre-trained model is reused as a starting point for a new task, saving time and computational resources.",
                 category: "Machine Learning",
                 difficulty: "Intermediate"
             },
             {
-                id: 12,
+                id: 14,
                 front: "What is Gradient Descent?",
                 back: "An optimization algorithm used to minimize the loss function by iteratively moving towards the minimum value.",
                 category: "Machine Learning",
                 difficulty: "Intermediate"
             },
             {
-                id: 13,
+                id: 15,
                 front: "What is Overfitting?",
                 back: "When a model learns the training data too well, including noise and outliers, resulting in poor generalization to new data.",
                 category: "Machine Learning",
                 difficulty: "Intermediate"
             },
             {
-                id: 14,
+                id: 16,
                 front: "What is a Recurrent Neural Network (RNN)?",
                 back: "A type of neural network designed to work with sequence data by maintaining an internal state (memory) from previous inputs.",
                 category: "Neural Networks",
                 difficulty: "Intermediate"
             },
             {
-                id: 15,
+                id: 17,
                 front: "What is the Vanishing Gradient Problem?",
                 back: "A difficulty found in training neural networks where the gradient becomes extremely small, effectively preventing the network from learning.",
+                category: "Neural Networks",
+                difficulty: "Intermediate"
+            },
+            {
+                id: 18,
+                front: "What is Feature Extraction?",
+                back: "The process of selecting or combining variables into features that make machine learning algorithms work better.",
+                category: "Machine Learning",
+                difficulty: "Intermediate"
+            },
+            {
+                id: 19,
+                front: "What is Cross-Validation?",
+                back: "A resampling method that uses different portions of data to test and train a model on different iterations.",
+                category: "Machine Learning",
+                difficulty: "Intermediate"
+            },
+            {
+                id: 20,
+                front: "What is Batch Normalization?",
+                back: "A technique to standardize the inputs to a network layer for each mini-batch to stabilize the learning process.",
                 category: "Neural Networks",
                 difficulty: "Intermediate"
             }
@@ -136,7 +171,6 @@ class FlashcardManager {
         this.isFlipped = !this.isFlipped;
         
         const cardElement = document.getElementById('flashcard');
-        const contentElement = document.getElementById('card-content');
         
         cardElement.style.transform = this.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
         
