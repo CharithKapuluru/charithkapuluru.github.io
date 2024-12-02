@@ -29,12 +29,20 @@
         }
         /* New Flashcard Styles */
         .flashcard {
-            perspective: 1000px;
-            transition: transform 0.6s;
             transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .flashcard.flipped {
-            transform: rotateY(180deg);
+        .flashcard:hover {
+            transform: scale(1.02);
+        }
+        #flashcard {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        #card-content {
+            backface-visibility: hidden;
+            transition: opacity 0.3s ease;
         }
         .flashcard-front, .flashcard-back {
             backface-visibility: hidden;
@@ -46,6 +54,13 @@
         }
         .flashcard-back {
             transform: rotateY(180deg);
+        }
+        .card-hover {
+            box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.7);
         }
     </style>
 </head>
@@ -150,7 +165,10 @@
                 <div id="flashcard" class="relative h-64 w-full cursor-pointer" onclick="flashcardManager.flipCard()">
                     <div class="absolute inset-0 bg-gray-800/50 p-8 rounded-xl border border-gray-700 card-hover">
                         <div class="flex flex-col h-full">
-                            <span id="card-category" class="text-blue-400 text-sm mb-4"></span>
+                            <div class="flex justify-between mb-4">
+                                <span id="card-category" class="text-blue-400 text-sm"></span>
+                                <span id="card-difficulty" class="text-purple-400 text-sm"></span>
+                            </div>
                             <div id="card-content" class="flex-grow flex items-center justify-center text-xl text-center"></div>
                             <div class="text-gray-400 text-sm text-center mt-4">Click to flip</div>
                         </div>
