@@ -4,7 +4,20 @@ class FlashcardManager {
     constructor() {
         this.currentCard = 0;
         this.cards = [
-            // Your existing cards array here
+            {
+                id: 1,
+                front: "What is Artificial Intelligence (AI)?",
+                back: "AI is the simulation of human intelligence by machines, enabling them to learn from experience, adjust to new inputs, and perform human-like tasks.",
+                category: "Basic AI Concepts",
+                difficulty: "Beginner"
+            },
+            {
+                id: 2,
+                front: "What is Machine Learning?",
+                back: "A subset of AI that enables systems to learn and improve from experience without being explicitly programmed.",
+                category: "Basic AI Concepts",
+                difficulty: "Beginner"
+            }
         ];
         this.isFlipped = false;
     }
@@ -13,33 +26,26 @@ class FlashcardManager {
         const card = this.cards[this.currentCard];
         if (!card) return;
 
-        // Update front of card
-        document.getElementById('card-category-front').textContent = card.category;
-        document.getElementById('card-difficulty-front').textContent = card.difficulty;
-        document.getElementById('card-content-front').textContent = card.front;
+        const cardElement = document.getElementById('flashcard');
+        const contentElement = document.getElementById('card-content');
+        const categoryElement = document.getElementById('card-category');
 
-        // Update back of card
-        document.getElementById('card-category-back').textContent = card.category;
-        document.getElementById('card-difficulty-back').textContent = card.difficulty;
-        document.getElementById('card-content-back').textContent = card.back;
+        categoryElement.textContent = card.category;
+        contentElement.textContent = this.isFlipped ? card.back : card.front;
         
-        // Update counter
         document.getElementById('card-counter').textContent = 
             `${this.currentCard + 1} / ${this.cards.length}`;
     }
 
     flipCard() {
         this.isFlipped = !this.isFlipped;
-        const cardElement = document.getElementById('flashcard');
-        cardElement.classList.toggle('flipped');
+        this.renderCard();
     }
 
     nextCard() {
         if (this.currentCard < this.cards.length - 1) {
             this.currentCard++;
             this.isFlipped = false;
-            const cardElement = document.getElementById('flashcard');
-            cardElement.classList.remove('flipped');
             this.renderCard();
         }
     }
@@ -48,8 +54,6 @@ class FlashcardManager {
         if (this.currentCard > 0) {
             this.currentCard--;
             this.isFlipped = false;
-            const cardElement = document.getElementById('flashcard');
-            cardElement.classList.remove('flipped');
             this.renderCard();
         }
     }
