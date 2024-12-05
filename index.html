@@ -3,126 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charith Kapuluru - Portfolio</title>
+    <title>Charith K - AI Development Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        body {
-            background-color: #1a202c; /* Dark background */
-            color: #edf2f7; /* Light text */
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-    
         .gradient-text {
-            background: linear-gradient(135deg, #38b2ac 0%, #4299e1 100%); /* Teal to blue gradient */
+            background: linear-gradient(135deg, #00f5d4 0%, #0080ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
         }
-    
-        .card {
-            background-color: #2d3748; /* Darker card background */
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin: 1rem;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
+        
+        .card-hover {
+            transition: transform 0.3s ease;
         }
-    
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
         }
-    
-        .card p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-    
-        .form-input {
+
+        #particles-js {
+            position: absolute;
             width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border-radius: 0.25rem;
-            border: 1px solid #4a5568;
-            background-color: #2d3748;
+            height: 100%;
+            z-index: -1;
+        }
+
+        body {
+            background-color: #1a202c;
             color: #edf2f7;
-        }
-    
-        .button {
-            background-color: #38b2ac;
-            color: #edf2f7;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 0.25rem;
-            cursor: pointer;
-        }
-    
-        .button:hover {
-            background-color: #319795;
-        }
-    
-        .github-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin-top: 1rem;
-        }
-    
-        .github-button:hover {
-            background-color: #444;
-        }
-    
-        .github-icon {
-            margin-right: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
 </head>
-<body>
-    <h1 class="gradient-text">Charith Kapuluru - Portfolio</h1>
-    <div class="card">
-        <h2>Welcome to my portfolio</h2>
-        <p>Explore my projects and skills. Feel free to reach out if you have any questions or opportunities.</p>
-    </div>
+<body class="bg-gray-900 text-white">
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <form>
-                    <input type="text" placeholder="Name" class="form-input">
-                    <input type="email" placeholder="Email" class="form-input">
-                    <textarea placeholder="Message" rows="4" class="form-input"></textarea>
-                    <button type="submit" class="button w-full">Send Message</button>
-                </form>
+    <!-- Navigation -->
+    <nav class="bg-gray-800 bg-opacity-90 fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-text">AI Dev Hub</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#resources" class="hover:text-blue-400">Resources</a>
+                    <a href="#tools" class="hover:text-blue-400">Tools</a>
+                    <a href="#api" class="hover:text-blue-400">API Hub</a>
+                    <a href="#playground" class="hover:text-blue-400">Playground</a>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </nav>
 
-    <footer class="section pt-4 pb-4">
-        <div class="container text-center">
-            <p>&copy; 2024 Charith Kapuluru. All rights reserved.</p>
-            <a href="https://github.com/your-github-username" class="github-button" target="_blank">
-                <svg class="github-icon" height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
-                    <path fill-rule="evenodd" fill="#fff" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-                View my GitHub
-            </a>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-6 gradient-text">
+                Your AI Development Journey Starts Here
+            </h1>
+            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                Discover resources, tools, and APIs to accelerate your AI development. Join our community of developers building the future with artificial intelligence.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#resources" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold">
+                    Explore Resources
+                </a>
+                <a href="#playground" class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold">
+                    Try Playground
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-gray-800 bg-opacity-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Resources</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Tutorials</h3>
+                    <p class="text-gray-300">Comprehensive guides for AI beginners and advanced developers.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Blog Posts</h3>
+                    <p class="text-gray-300">Latest insights on AI trends and technologies.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Case Studies</h3>
+                    <p class="text-gray-300">Real-world AI implementation examples and lessons learned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Directory -->
+    <section id="tools" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Tools Directory</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">TensorFlow</h3>
+                    <p class="text-gray-300 mb-4">Open-source machine learning framework.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">PyTorch</h3>
+                    <p class="text-gray-300 mb-4">Deep learning framework for research and production.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4">OpenAI API</h3>
+                    <p class="text-gray-300 mb-4">Access state-of-the-art AI models.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Hub -->
+    <section id="api" class="py-20 bg-gray-800 bg-opacity-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">API Hub</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Text Generation API</h3>
+                    <div class="bg-gray-800 p-4 rounded-lg mb-4">
+                        <code class="text-sm text-gray-300">
+                            # Example API Call
+                            response = openai.Completion.create(
+                                engine="davinci",
+                                prompt="Hello, AI!"
+                            )
+                        </code>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        Try it Live
+                    </button>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Image Classification API</h3>
+                    <div class="bg-gray-800 p-4 rounded-lg mb-4">
+                        <code class="text-sm text-gray-300">
+                            # Example API Call
+                            prediction = model.predict(
+                                image_data,
+                                confidence=0.8
+                            )
+                        </code>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        Try it Live
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Playground -->
+    <section id="playground" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Code Playground</h2>
+            <div class="bg-gray-800 rounded-lg p-6">
+                <div class="flex mb-4">
+                    <button class="bg-blue-600 px-4 py-2 rounded-lg mr-2">Python</button>
+                    <button class="bg-gray-700 px-4 py-2 rounded-lg">JavaScript</button>
+                </div>
+                <div class="bg-gray-900 p-4 rounded-lg h-64 font-mono">
+                    <code class="text-sm text-gray-300">
+# AI Code Example
+import tensorflow as tf
+
+# Create a simple neural network
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+                    </code>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
+                        Run Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">AI Dev Hub</h4>
+                    <p class="text-gray-400">Empowering developers to build with AI.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><a href="#resources" class="hover:text-white">Resources</a></li>
+                        <li class="mb-2"><a href="#tools" class="hover:text-white">Tools</a></li>
+                        <li class="mb-2"><a href="#api" class="hover:text-white">API Hub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Connect</h4>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><a href="https://github.com/CharithKapuluru" class="hover:text-white">GitHub</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">LinkedIn</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contact</h4>
+                    <ul class="text-gray-400">
+                        <li class="mb-2">info@aidevhub.com</li>
+                        <li class="mb-2">@aidevhub</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 AI Dev Hub. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
