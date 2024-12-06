@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charith K - AI Development Hub</title>
+    <title>CK - AI Development Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
@@ -11,41 +11,46 @@
             background: linear-gradient(135deg, #00f5d4 0%, #0080ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         
-        .card-hover {
+        .logo-text {
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00f5d4, #0080ff);
+            transform-origin: right;
             transition: transform 0.3s ease;
         }
         
-        .card-hover:hover {
-            transform: translateY(-5px);
-        }
-
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        body {
-            background-color: #1a202c;
-            color: #edf2f7;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        .logo-text:hover::after {
+            transform: scaleX(0);
+            transform-origin: left;
         }
     </style>
+    <!-- Rest of your existing styles -->
 </head>
 <body class="bg-gray-900 text-white">
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
-
     <!-- Navigation -->
     <nav class="bg-gray-800 bg-opacity-90 fixed w-full z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold gradient-text">AI Dev Hub</span>
+                    <span class="logo-text gradient-text">CK</span>
                 </div>
+                <!-- Rest of your navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#resources" class="hover:text-blue-400">Resources</a>
                     <a href="#tools" class="hover:text-blue-400">Tools</a>
@@ -55,215 +60,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 relative">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl font-bold mb-6 gradient-text">
-                Your AI Development Journey Starts Here
-            </h1>
-            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                Discover resources, tools, and APIs to accelerate your AI development. Join our community of developers building the future with artificial intelligence.
-            </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#resources" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold">
-                    Explore Resources
-                </a>
-                <a href="#playground" class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold">
-                    Try Playground
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources" class="py-20 bg-gray-800 bg-opacity-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Resources</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-700 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">Tutorials</h3>
-                    <p class="text-gray-300">Comprehensive guides for AI beginners and advanced developers.</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">Blog Posts</h3>
-                    <p class="text-gray-300">Latest insights on AI trends and technologies.</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">Case Studies</h3>
-                    <p class="text-gray-300">Real-world AI implementation examples and lessons learned.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tools Directory -->
-    <section id="tools" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Tools Directory</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-800 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">TensorFlow</h3>
-                    <p class="text-gray-300 mb-4">Open-source machine learning framework.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">PyTorch</h3>
-                    <p class="text-gray-300 mb-4">Deep learning framework for research and production.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-6 card-hover">
-                    <h3 class="text-xl font-semibold mb-4">OpenAI API</h3>
-                    <p class="text-gray-300 mb-4">Access state-of-the-art AI models.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- API Hub -->
-    <section id="api" class="py-20 bg-gray-800 bg-opacity-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">API Hub</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-700 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4">Text Generation API</h3>
-                    <div class="bg-gray-800 p-4 rounded-lg mb-4">
-                        <code class="text-sm text-gray-300">
-                            # Example API Call
-                            response = openai.Completion.create(
-                                engine="davinci",
-                                prompt="Hello, AI!"
-                            )
-                        </code>
-                    </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                        Try it Live
-                    </button>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4">Image Classification API</h3>
-                    <div class="bg-gray-800 p-4 rounded-lg mb-4">
-                        <code class="text-sm text-gray-300">
-                            # Example API Call
-                            prediction = model.predict(
-                                image_data,
-                                confidence=0.8
-                            )
-                        </code>
-                    </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                        Try it Live
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Code Playground -->
-    <section id="playground" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Code Playground</h2>
-            <div class="bg-gray-800 rounded-lg p-6">
-                <div class="flex mb-4">
-                    <button class="bg-blue-600 px-4 py-2 rounded-lg mr-2">Python</button>
-                    <button class="bg-gray-700 px-4 py-2 rounded-lg">JavaScript</button>
-                </div>
-                <div class="bg-gray-900 p-4 rounded-lg h-64 font-mono">
-                    <code class="text-sm text-gray-300">
-# AI Code Example
-import tensorflow as tf
-
-# Create a simple neural network
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(128, activation='relu'),
-    tf.keras.layers.Dense(10, activation='softmax')
-])
-                    </code>
-                </div>
-                <div class="mt-4 flex justify-end">
-                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
-                        Run Code
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-xl font-semibold mb-4">AI Dev Hub</h4>
-                    <p class="text-gray-400">Empowering developers to build with AI.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><a href="#resources" class="hover:text-white">Resources</a></li>
-                        <li class="mb-2"><a href="#tools" class="hover:text-white">Tools</a></li>
-                        <li class="mb-2"><a href="#api" class="hover:text-white">API Hub</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold mb-4">Connect</h4>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><a href="https://github.com/CharithKapuluru" class="hover:text-white">GitHub</a></li>
-                        <li class="mb-2"><a href="#" class="hover:text-white">LinkedIn</a></li>
-                        <li class="mb-2"><a href="#" class="hover:text-white">Twitter</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold mb-4">Contact</h4>
-                    <ul class="text-gray-400">
-                        <li class="mb-2">info@aidevhub.com</li>
-                        <li class="mb-2">@aidevhub</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 AI Dev Hub. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#ffffff',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                }
-            },
-            retina_detect: true
-        });
-    </script>
+    <!-- Rest of your existing content -->
 </body>
 </html>
