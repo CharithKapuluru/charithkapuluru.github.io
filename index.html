@@ -3,43 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CK</title>
+    <title>CK - AI Development Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #1a202c;
-            color: #edf2f7;
-        }
-        .logo {
-            background: linear-gradient(135deg, #00f5d4 0%, #0080ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #00f5d4, #0080ff);
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
-<body>
-    <nav class="fixed w-full bg-gray-900 bg-opacity-90">
+<body class="bg-gray-900 text-gray-100">
+    <!-- Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <span class="text-2xl font-bold logo">CK</span>
                 <div class="flex items-center space-x-8">
-                    <a href="#resources" class="text-gray-300 hover:text-blue-400">Resources</a>
-                    <a href="#tools" class="text-gray-300 hover:text-blue-400">Tools</a>
-                    <a href="#api" class="text-gray-300 hover:text-blue-400">API Hub</a>
-                    <a href="#playground" class="text-gray-300 hover:text-blue-400">Playground</a>
+                    <a href="#resources" class="nav-link">Resources</a>
+                    <a href="#tools" class="nav-link">Tools</a>
+                    <a href="#api" class="nav-link">API Hub</a>
+                    <a href="#playground" class="nav-link">Playground</a>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+    <section class="hero min-h-screen flex items-center justify-center relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-6xl font-bold mb-8" data-aos="fade-up">AI Development Hub</h1>
+            <p class="text-xl mb-12" data-aos="fade-up" data-aos-delay="200">
+                Exploring the frontiers of artificial intelligence and development
+            </p>
+            <a href="#resources" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors duration-300">
+                Get Started
+            </a>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource cards can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-20 bg-gray-800 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Tool cards can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- API Hub Section -->
+    <section id="api" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">API Hub</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- API documentation can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Playground Section -->
+    <section id="playground" class="py-20 bg-gray-800 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Playground</h2>
+            <!-- Interactive playground elements can be added here -->
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="particles-config.js"></script>
+    <script src="animation.js"></script>
+    <script src="ai-particles.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
