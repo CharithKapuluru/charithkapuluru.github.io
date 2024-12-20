@@ -1,100 +1,115 @@
-/* Custom cursor */
+/* Custom Animations */
+.animate-fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-in 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Cursor */
 .cursor {
     width: 20px;
     height: 20px;
-    border: 2px solid #00f5d4;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.2s ease;
     transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+    z-index: 9999;
 }
 
-/* Logo styling */
-.logo {
-    background: linear-gradient(135deg, #00f5d4 0%, #0080ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+/* Navigation Links */
+.nav-link {
     position: relative;
-    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0;
 }
 
-.logo::after {
+.nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #00f5d4, #0080ff);
+    background: #3B82F6;
+    transition: width 0.3s ease;
 }
 
-/* Navigation links */
-.nav-link {
-    color: #a0aec0;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #00f5d4;
-}
-
-/* Particles container */
-#particles-js {
+.nav-link:hover::after {
     width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 
-/* Hero section parallax */
-.hero {
-    transform-style: preserve-3d;
-    will-change: transform;
+/* Code Editor Styles */
+#code-editor {
+    font-family: 'Fira Code', monospace;
+    resize: none;
+    outline: none;
 }
 
-/* Animation classes */
-[data-aos] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-[data-aos].aos-animate {
-    opacity: 1;
-    transform: translateY(0);
+::-webkit-scrollbar-track {
+    background: #1F2937;
 }
 
-/* Glitch animation for hero title */
-@keyframes glitch {
-    0% {
-        transform: translate(0);
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4B5563;
+}
+
+/* Card Hover Effects */
+.transform {
+    transition: transform 0.3s ease;
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
     }
-    20% {
-        transform: translate(-2px, 2px);
-    }
-    40% {
-        transform: translate(-2px, -2px);
-    }
-    60% {
-        transform: translate(2px, 2px);
-    }
-    80% {
-        transform: translate(2px, -2px);
-    }
-    100% {
-        transform: translate(0);
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-.animate-glitch {
-    animation: glitch 1s infinite;
-    animation-timing-function: steps(2, end);
+.modal {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .text-6xl {
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
