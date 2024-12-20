@@ -1,35 +1,90 @@
-<!-- Resources Section -->
-<section id="resources" class="py-20 relative z-10">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Learning Resources</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                <h3 class="text-xl font-bold mb-4">AI Fundamentals</h3>
-                <p class="mb-4">Explore machine learning, neural networks, and AI basics through our comprehensive guides.</p>
-                <div class="space-y-2">
-                    <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="block text-blue-400 hover:text-blue-300">Coursera: AI For Everyone →</a>
-                    <a href="https://www.fast.ai/" target="_blank" class="block text-blue-400 hover:text-blue-300">Fast.ai Courses →</a>
-                    <a href="https://www.deeplearning.ai/" target="_blank" class="block text-blue-400 hover:text-blue-300">DeepLearning.AI →</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK - AI Development Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10">
+        <!-- Resources Section -->
+        <section id="resources" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-12 text-center text-white">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- AI Fundamentals Card -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">AI Fundamentals</h3>
+                        <p class="text-gray-300 mb-6">Explore machine learning, neural networks, and AI basics through our comprehensive guides.</p>
+                        <div class="space-y-3">
+                            <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> Coursera: AI For Everyone
+                            </a>
+                            <a href="https://www.fast.ai" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> Fast.ai Courses
+                            </a>
+                            <a href="https://www.deeplearning.ai" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> DeepLearning.AI
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Development Guides Card -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">Development Guides</h3>
+                        <p class="text-gray-300 mb-6">Master best practices and workflows for AI development projects.</p>
+                        <div class="space-y-3">
+                            <a href="https://huggingface.co/learn" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> Hugging Face Courses
+                            </a>
+                            <a href="https://www.tensorflow.org/tutorials" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> TensorFlow Tutorials
+                            </a>
+                            <a href="https://pytorch.org/tutorials" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> PyTorch Tutorials
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Latest Research Card -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">Latest Research</h3>
+                        <p class="text-gray-300 mb-6">Stay updated with cutting-edge AI research and breakthroughs.</p>
+                        <div class="space-y-3">
+                            <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> arXiv AI Papers
+                            </a>
+                            <a href="https://paperswithcode.com" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> Papers with Code
+                            </a>
+                            <a href="https://distill.pub" target="_blank" 
+                               class="block text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center">
+                               <span class="mr-2">→</span> Distill.pub Research
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                <h3 class="text-xl font-bold mb-4">Development Guides</h3>
-                <p class="mb-4">Master best practices and workflows for AI development projects.</p>
-                <div class="space-y-2">
-                    <a href="https://huggingface.co/learn" target="_blank" class="block text-blue-400 hover:text-blue-300">Hugging Face Courses →</a>
-                    <a href="https://www.tensorflow.org/tutorials" target="_blank" class="block text-blue-400 hover:text-blue-300">TensorFlow Tutorials →</a>
-                    <a href="https://pytorch.org/tutorials/" target="_blank" class="block text-blue-400 hover:text-blue-300">PyTorch Tutorials →</a>
-                </div>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                <h3 class="text-xl font-bold mb-4">Latest Research</h3>
-                <p class="mb-4">Stay updated with cutting-edge AI research and breakthroughs.</p>
-                <div class="space-y-2">
-                    <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" class="block text-blue-400 hover:text-blue-300">arXiv AI Papers →</a>
-                    <a href="https://paperswithcode.com/" target="_blank" class="block text-blue-400 hover:text-blue-300">Papers with Code →</a>
-                    <a href="https://distill.pub/" target="_blank" class="block text-blue-400 hover:text-blue-300">Distill.pub Research →</a>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
-</section>
+
+    <!-- Scripts -->
+    <script src="particles-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
