@@ -1,81 +1,132 @@
-// Create interactive particle effect
-document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.createElement('canvas');
-    canvas.classList.add('ai-particles-canvas');
-    document.querySelector('.ai-particles').appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+// AI-themed particle system
+class AIParticle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 3;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.connections = [];
     }
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 2;
-            this.vy = (Math.random() - 0.5) * 2;
-            this.radius = Math.random() * 2;
-            this.color = '#4A90E2';
-        }
+        // Bounce off edges
+        if (this.x < 0 || this.x > window.innerWidth) this.speedX *= -1;
+        if (this.y < 0 || this.y > window.innerHeight) this.speedY *= -1;
+    }
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
+    draw(ctx) {
+        ctx.fillStyle = '#3B82F6';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
 
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
+class AIParticleSystem {
+    constructor() {
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.particleCount = 50;
+        this.maxConnections = 3;
+        this.connectionDistance = 100;
 
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
+        // Initialize canvas
+        this.canvas.style.position = 'fixed';
+        this.canvas.style.top = '0';
+        this.canvas.style.left = '0';
+        this.canvas.style.zIndex = '1';
+        this.canvas.style.pointerEvents = 'none';
+        document.body.appendChild(this.canvas);
+
+        // Set canvas size
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+
+        // Initialize particles
+        this.initParticles();
+
+        // Start animation
+        this.animate();
+    }
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+
+    initParticles() {
+        for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push(new AIParticle(
+                Math.random() * this.canvas.width,
+                Math.random() * this.canvas.height
+            ));
         }
     }
 
-    function init() {
-        particles = [];
-        for (let i = 0; i < 50; i++) {
-            particles.push(new Particle());
-        }
-    }
+    updateConnections() {
+        this.particles.forEach(particle => {
+            particle.connections = [];
+            this.particles.forEach(other => {
+                if (particle === other) return;
 
-    function animate() {
-        requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const distance = Math.hypot(
+                    particle.x - other.x,
+                    particle.y - other.y
+                );
 
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-
-        // Draw connections
-        particles.forEach((p1, i) => {
-            particles.slice(i + 1).forEach(p2 => {
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 100) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(74, 144, 226, ${1 - distance / 100})`;
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
+                if (distance < this.connectionDistance &&
+                    particle.connections.length < this.maxConnections) {
+                    particle.connections.push({
+                        particle: other,
+                        distance: distance
+                    });
                 }
             });
         });
     }
 
-    init();
-    animate();
+    drawConnections() {
+        this.ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)';
+        this.ctx.lineWidth = 1;
+
+        this.particles.forEach(particle => {
+            particle.connections.forEach(connection => {
+                const opacity = 1 - (connection.distance / this.connectionDistance);
+                this.ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.2})`;
+
+                this.ctx.beginPath();
+                this.ctx.moveTo(particle.x, particle.y);
+                this.ctx.lineTo(connection.particle.x, connection.particle.y);
+                this.ctx.stroke();
+            });
+        });
+    }
+
+    animate() {
+        // Clear canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Update and draw particles
+        this.particles.forEach(particle => {
+            particle.update();
+            particle.draw(this.ctx);
+        });
+
+        // Update and draw connections
+        this.updateConnections();
+        this.drawConnections();
+
+        // Continue animation
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Initialize the particle system when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new AIParticleSystem();
 });
