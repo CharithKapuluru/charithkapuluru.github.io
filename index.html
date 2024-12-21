@@ -6,12 +6,8 @@
     <title>CK - AI Development Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body class="bg-white text-gray-800 min-h-screen">
-    <!-- Particles Background -->
-    <div id="particles-js" class="fixed inset-0 z-0"></div>
-
     <!-- Navigation -->
     <nav class="fixed w-full bg-white bg-opacity-90 shadow-md z-50">
         <div class="container mx-auto px-6 py-4">
@@ -27,11 +23,22 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero min-h-screen flex items-center justify-center relative z-10 bg-gradient-to-b from-white to-blue-50">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-6xl font-bold mb-8 text-gray-900">AI Development Hub</h1>
-            <p class="text-xl mb-12 text-gray-600">Exploring the frontiers of artificial intelligence and development</p>
+    <!-- Hero Section with Video Background -->
+    <section class="hero min-h-screen flex items-center justify-center relative z-10">
+        <!-- Video Background -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+            <video class="absolute min-w-full min-h-full object-cover" autoplay loop muted playsinline>
+                <source src="https://cdn.pixabay.com/vimeo/822883057/Artificial%20Intelligence%20-%20127944.mp4?width=1280&hash=9f6f0eb2cad936df8c3e3f0a07f5b1ab914c5be9" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Overlay to ensure text is readable -->
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-6xl font-bold mb-8 text-white">AI Development Hub</h1>
+            <p class="text-xl mb-12 text-gray-200">Exploring the frontiers of artificial intelligence and development</p>
             <div class="flex justify-center space-x-4">
                 <a href="#resources" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
                     Get Started
@@ -135,7 +142,6 @@
     </section>
 
     <!-- Scripts -->
-    <script src="particles-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
