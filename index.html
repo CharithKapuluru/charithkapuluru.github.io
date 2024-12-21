@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CK - AI Development Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <style>
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-800 min-h-screen">
     <!-- Navigation -->
@@ -24,26 +47,31 @@
     </nav>
 
     <!-- Hero Section with Video Background -->
-    <section class="hero min-h-screen flex items-center justify-center relative z-10">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Video Background -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-            <video class="absolute min-w-full min-h-full object-cover" autoplay loop muted playsinline>
-                <source src="https://cdn.pixabay.com/vimeo/822883057/Artificial%20Intelligence%20-%20127944.mp4?width=1280&hash=9f6f0eb2cad936df8c3e3f0a07f5b1ab914c5be9" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <!-- Overlay to ensure text is readable -->
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        </div>
+        <video 
+            class="video-background"
+            autoplay 
+            loop 
+            muted 
+            playsinline
+        >
+            <source src="assets/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
 
         <!-- Hero Content -->
-        <div class="container mx-auto px-6 text-center relative z-10">
+        <div class="hero-content container mx-auto px-6 text-center">
             <h1 class="text-6xl font-bold mb-8 text-white">AI Development Hub</h1>
             <p class="text-xl mb-12 text-gray-200">Exploring the frontiers of artificial intelligence and development</p>
             <div class="flex justify-center space-x-4">
                 <a href="#resources" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
                     Get Started
                 </a>
-                <a href="https://github.com/CharithKapuluru" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                <a href="https://github.com/CharithKapuluru" target="_blank" class="bg-white hover:bg-gray-100 text-gray-800 px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
                     GitHub Profile
                 </a>
             </div>
@@ -51,7 +79,7 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="py-20 bg-white relative z-10">
+    <section id="resources" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold mb-12 text-center text-gray-900">Learning Resources</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -60,14 +88,14 @@
                     <h3 class="text-2xl font-bold mb-4 text-blue-600">AI Fundamentals</h3>
                     <p class="text-gray-600 mb-6">Explore machine learning, neural networks, and AI basics through our comprehensive guides.</p>
                     <div class="space-y-3">
-                        <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> Coursera: AI For Everyone
+                        <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → Coursera: AI For Everyone
                         </a>
-                        <a href="https://www.fast.ai" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> Fast.ai Courses
+                        <a href="https://www.fast.ai" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → Fast.ai Courses
                         </a>
-                        <a href="https://www.deeplearning.ai" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> DeepLearning.AI
+                        <a href="https://www.deeplearning.ai" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → DeepLearning.AI
                         </a>
                     </div>
                 </div>
@@ -77,14 +105,14 @@
                     <h3 class="text-2xl font-bold mb-4 text-blue-600">Development Guides</h3>
                     <p class="text-gray-600 mb-6">Master best practices and workflows for AI development projects.</p>
                     <div class="space-y-3">
-                        <a href="https://huggingface.co/learn" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> Hugging Face Courses
+                        <a href="https://huggingface.co/learn" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → Hugging Face Courses
                         </a>
-                        <a href="https://www.tensorflow.org/tutorials" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> TensorFlow Tutorials
+                        <a href="https://www.tensorflow.org/tutorials" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → TensorFlow Tutorials
                         </a>
-                        <a href="https://pytorch.org/tutorials" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> PyTorch Tutorials
+                        <a href="https://pytorch.org/tutorials" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → PyTorch Tutorials
                         </a>
                     </div>
                 </div>
@@ -94,14 +122,14 @@
                     <h3 class="text-2xl font-bold mb-4 text-blue-600">Latest Research</h3>
                     <p class="text-gray-600 mb-6">Stay updated with cutting-edge AI research and breakthroughs.</p>
                     <div class="space-y-3">
-                        <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> arXiv AI Papers
+                        <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → arXiv AI Papers
                         </a>
-                        <a href="https://paperswithcode.com" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> Papers with Code
+                        <a href="https://paperswithcode.com" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → Papers with Code
                         </a>
-                        <a href="https://distill.pub" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center">
-                            <span class="mr-2">→</span> Distill.pub Research
+                        <a href="https://distill.pub" target="_blank" class="block text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                            → Distill.pub Research
                         </a>
                     </div>
                 </div>
@@ -110,7 +138,7 @@
     </section>
 
     <!-- Tools Section -->
-    <section id="tools" class="py-20 bg-gray-50 relative z-10">
+    <section id="tools" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold mb-12 text-center text-gray-900">Interactive Tools</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
