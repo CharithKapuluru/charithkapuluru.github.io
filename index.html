@@ -18,27 +18,74 @@
                 linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
         }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-black text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg">
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <span class="text-2xl font-bold gradient-text">CK</span>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-white transition">About</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section Placeholder -->
-    <section class="min-h-screen bg-grid flex items-center justify-center">
-        <div class="text-center">
-            <h1 class="text-6xl font-bold gradient-text">Coming Soon</h1>
+    <!-- Hero Section -->
+    <section class="min-h-screen relative bg-grid overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/50 to-black/50"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
+            <div class="text-center">
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 gradient-text animate-float">
+                    AI Development
+                    <br>& Innovation
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto fade-in">
+                    Building the future through artificial intelligence, one project at a time.
+                </p>
+                <div class="flex justify-center space-x-6 fade-in" style="animation-delay: 0.2s">
+                    <a href="#projects" 
+                       class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-medium transition transform hover:scale-105">
+                        View Projects
+                    </a>
+                    <a href="https://github.com/CharithKapuluru" 
+                       target="_blank" 
+                       class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-medium transition transform hover:scale-105">
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+    </section>
+
+    <!-- Placeholder for Projects Section -->
+    <section id="projects" class="py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 gradient-text">Projects</h2>
+            <!-- Project content will go here in the next update -->
         </div>
     </section>
 </body>
