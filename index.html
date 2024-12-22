@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CK - AI Development Hub</title>
+    <title>CK - AI & Development</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .gradient-text {
@@ -33,6 +33,13 @@
         .fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="bg-black text-white min-h-screen">
@@ -61,7 +68,7 @@
                     <br>& Innovation
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto fade-in">
-                    Building the future through artificial intelligence, one project at a time.
+                    Building intelligent solutions through code, one project at a time.
                 </p>
                 <div class="flex justify-center space-x-6 fade-in" style="animation-delay: 0.2s">
                     <a href="#projects" 
@@ -76,17 +83,141 @@
                 </div>
             </div>
         </div>
-
-        <!-- Decorative Elements -->
-        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
     </section>
 
-    <!-- Placeholder for Projects Section -->
-    <section id="projects" class="py-32">
+    <!-- Featured Projects -->
+    <section id="projects" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 gradient-text">Projects</h2>
-            <!-- Project content will go here in the next update -->
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 gradient-text">Featured Projects</h2>
+            
+            <!-- Main Project -->
+            <div class="mb-20 card-hover">
+                <a href="https://github.com/CharithKapuluru/ai-dev-hub" target="_blank" 
+                   class="block bg-gray-900 rounded-lg overflow-hidden">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-blue-600 to-purple-600 p-8">
+                        <div class="flex items-center justify-center h-full">
+                            <h3 class="text-4xl font-bold text-white">AI Development Hub</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xl text-gray-300 mb-4">
+                            A comprehensive platform for AI development resources, tools, and community features.
+                        </p>
+                        <span class="text-blue-400">Explore Project →</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Bug Hunt Arena -->
+                <div class="card-hover">
+                    <a href="https://github.com/CharithKapuluru/bug-hunt-arena" target="_blank" 
+                       class="block bg-gray-900 rounded-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">Bug Hunt Arena</h3>
+                            <p class="text-gray-400 mb-4">
+                                A web application for running and testing code in multiple programming languages.
+                            </p>
+                            <span class="text-blue-400">View Project →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- BTC Price -->
+                <div class="card-hover">
+                    <a href="https://github.com/CharithKapuluru/btc_price" target="_blank" 
+                       class="block bg-gray-900 rounded-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">BTC Price Tracker</h3>
+                            <p class="text-gray-400 mb-4">
+                                Python script to fetch and analyze Bitcoin price data using the CoinGecko API.
+                            </p>
+                            <span class="text-blue-400">View Project →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Save Plate -->
+                <div class="card-hover">
+                    <a href="https://github.com/CharithKapuluru/Save-Plate" target="_blank" 
+                       class="block bg-gray-900 rounded-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">Save Plate</h3>
+                            <p class="text-gray-400 mb-4">
+                                Innovative solution for food waste reduction and management.
+                            </p>
+                            <span class="text-blue-400">View Project →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Academic Projects -->
+                <div class="card-hover">
+                    <a href="https://github.com/CharithKapuluru/Academic-Projects-Python" target="_blank" 
+                       class="block bg-gray-900 rounded-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">Academic Projects</h3>
+                            <p class="text-gray-400 mb-4">
+                                Collection of academic projects showcasing expertise in Python and Java development.
+                            </p>
+                            <span class="text-blue-400">View Project →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">About Me</h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        I'm passionate about advancing AI technology and making it accessible to developers worldwide. 
+                        Specializing in machine learning, web development, and innovative software solutions.
+                    </p>
+                    <p class="text-gray-300 text-lg">
+                        Currently working on projects that push the boundaries of what's possible with AI,
+                        focusing on practical applications and innovative solutions.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="w-full h-96 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-lg 
+                                border border-white/10 backdrop-blur-sm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Let's Connect</h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                Interested in collaborating or learning more about my projects? 
+                Let's discuss how we can work together.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/CharithKapuluru" target="_blank"
+                   class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-medium transition transform hover:scale-105">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank"
+                   class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg text-lg font-medium transition transform hover:scale-105">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">© 2024 CK. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
